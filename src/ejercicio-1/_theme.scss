@@ -1,0 +1,39 @@
+$theme: (
+    "main": #d0efb5,
+    "secondary": #2f3e75,
+    "alternative": #eb7878
+);
+
+@mixin darkening($color) {
+    @for $i from 1 through 4 {
+        .darken-#{$i} {
+            background-color: darken($color, $i * 5%);
+        }
+    }
+}
+
+@mixin lightening($color) {
+    @for $i from 1 through 4 {
+        .lighten-#{$i} {
+            background-color: lighten($color, $i * 5%);
+        }
+    }
+}
+
+@mixin degradate-container {
+    $count: 0;
+    @each $name, $color in $theme {
+        $count: $count + 1;
+
+        .container-#{$count} {
+            .base-color {
+                background-color: $color;
+            }
+
+            @include darkening($color);
+            @include lightening($color);
+
+        }
+
+    }
+}

@@ -1,0 +1,62 @@
+body {
+    box-sizing: border-box;
+    background-color: #EFEDED;
+}
+
+.grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    justify-items: center;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__body {
+        padding: 10px;
+
+        h4 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    &__footer {
+        padding: 10px;
+    }
+
+    &__publish {
+        padding: 10px 0;
+        text-align: end;
+
+        span {
+            color: gray;
+        }
+    }
+
+    &__info {
+        background-color: #78BE46;
+        width: 100%;
+        padding: 10px;
+        color: #fff;
+        border: none;
+    }
+
+
+}

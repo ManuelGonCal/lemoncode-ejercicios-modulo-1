@@ -1,0 +1,46 @@
+$themes: (
+    "a": (
+        "base": red,
+        "important": brown,
+        "warning": pink,
+        "principal": verdana,
+        "secondary": arial,
+        "shadow": 10px 10px 5px 0px rgba(0,0,0,0.75)
+    ),
+    "b": (
+        "base": blue,
+        "important": darkblue,
+        "warning": lightblue,
+        "principal": courier,
+        "secondary": times,
+        "shadow": -16px 14px 5px 0px rgba(0,0,0,0.75)
+    )
+);
+
+@mixin themify($theme: "a") {
+    $actualTheme: map-get($themes, $theme);
+
+    .theme.theme__base {
+        background-color: map-get($actualTheme, "base");
+    }
+
+    .theme.theme__important {
+        background-color: map-get($actualTheme, "important");
+    }
+
+    .theme.theme__warning {
+        background-color: map-get($actualTheme, "warning");
+    }
+
+    .theme.theme__principal {
+        font-family: map-get($actualTheme, "principal");
+    }
+
+    .theme.theme__secondary {
+        font-family: map-get($actualTheme, "secondary");
+    }
+
+    .theme.theme__shadow {
+        box-shadow: map-get($actualTheme, "shadow");
+    }
+}

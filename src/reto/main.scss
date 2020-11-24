@@ -1,0 +1,141 @@
+@import 'utils';
+
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: #141414;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    padding: 20px;
+    margin-bottom: 40px;
+    background-color: #141414;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo, &__buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    &__platform {
+        padding: 0 1rem;
+        display: none;
+
+        @include mq(xl) {
+            display: block;
+        }
+    }
+
+    &__buttons {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+
+        div {
+            border-radius: 5px;
+            padding: 20px 1rem;
+            &:hover {
+                background-color: #fff;
+                color: #5796FF;
+            }
+        }
+    }
+}
+
+main {
+    padding: 20px;
+}
+
+.top, .first, .second {
+    display: grid;
+    margin-bottom: 2rem;
+}
+
+.top {
+    @include mq(sm) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq(xl) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    justify-items: space-between;
+
+    &-item {
+
+        &:nth-child(n+4) {
+            display: none;
+
+            @include mq(xl) {
+                display: block;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.first, .second {
+    gap: 0.75rem;
+    
+    @include mq(sm) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq(md) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include mq(xl) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .item {
+
+        &:nth-child(n + 5) {
+            @include mq(md) {
+                grid-column-end: span 2;
+            }
+
+            @include mq(xl) {
+                grid-column-end: span 1;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.1s;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+.section-title {
+    margin-bottom: 1rem;
+
+    span {
+        &::before {
+            content: '3';
+
+            @include mq(xl) {
+                content: '5';
+            }
+        }
+    }
+}

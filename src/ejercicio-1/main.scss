@@ -1,0 +1,30 @@
+@import "theme";
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    @include degradate-container();
+}
+
+div[class^='container'] {
+    display: flex;
+    height: 150px;
+    margin: 20px 0;
+
+    .box {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        border-radius: 20px;
+    }
+
+    .base-color {
+        flex-grow: 2;
+    }
+}
